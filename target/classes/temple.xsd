@@ -1,0 +1,52 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="coffelist">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="arabicacoffee">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="id"/>
+              <xs:element type="xs:string" name="coffetype"/>
+              <xs:element type="xs:byte" name="coffesort"/>
+              <xs:element type="xs:byte" name="coffeprice"/>
+              <xs:element type="xs:short" name="coffeeweight"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="canephoracoffe">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="id"/>
+              <xs:element type="xs:string" name="coffetype"/>
+              <xs:element type="xs:byte" name="coffesort"/>
+              <xs:element type="xs:byte" name="coffeprice"/>
+              <xs:element type="xs:short" name="coffeeweight"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="dewevreicoffe" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="id"/>
+              <xs:element type="xs:string" name="coffetype"/>
+              <xs:element type="xs:byte" name="coffesort"/>
+              <xs:element type="xs:int" name="coffeprice"/>
+              <xs:element type="xs:short" name="coffeeweight"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="libericacoffe">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:byte" name="id"/>
+              <xs:element type="xs:string" name="coffetype"/>
+              <xs:element type="xs:byte" name="coffesort"/>
+              <xs:element type="xs:byte" name="coffeprice"/>
+              <xs:element type="xs:short" name="coffeeweight"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -5,7 +5,11 @@ package entity;
  */
 public class ArabicaCoffee extends AbstractCoffe {
 
+    public ArabicaCoffee(){
+
+    }
     public ArabicaCoffee(String coffeeType, String coffeeSort) {
         super(coffeeType, coffeeSort);
     }
+
 }

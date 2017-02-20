@@ -7,4 +7,8 @@ public class DewevreiCoffe extends AbstractCoffe {
     public DewevreiCoffe(String coffeeType, String coffeeSort) {
         super(coffeeType, coffeeSort);
     }
+
+    public DewevreiCoffe(){
+
+    }
 }

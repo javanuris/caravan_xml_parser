@@ -8,10 +8,23 @@ public abstract class AbstractCoffe {
     private String coffeeSort;
     private int price;
     private int weight;
+    private int id;
 
     public AbstractCoffe(String coffeeType, String coffeeSort) {
         this.coffeeType = coffeeType;
         this.coffeeSort = coffeeSort;
+    }
+
+AbstractCoffe(){
+
+}
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getCoffeeType() {
@@ -67,5 +80,10 @@ public abstract class AbstractCoffe {
         result = 31 * result + price;
         result = 31 * result + weight;
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return id + "**" + price+ "**" + coffeeType+"  " +getClass().getSimpleName();
     }
 }

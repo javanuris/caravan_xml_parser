@@ -21,6 +21,9 @@ public class SAXCoffeParser extends DefaultHandler {
             s += " " + attributes.getLocalName(i) + " = " + attributes.getValue(i);
         }
         System.out.print(s.trim());
+
+
+
     }
 
     @Override

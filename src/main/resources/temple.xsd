@@ -2,15 +2,16 @@
   <xs:element name="coffelist">
     <xs:complexType>
       <xs:sequence>
-        <xs:element name="arabicacoffee">
+        <xs:element name="arabicacoffee" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="id"/>
               <xs:element type="xs:string" name="coffetype"/>
               <xs:element type="xs:byte" name="coffesort"/>
-              <xs:element type="xs:byte" name="coffeprice"/>
+              <xs:element type="xs:int" name="coffeprice"/>
               <xs:element type="xs:short" name="coffeeweight"/>
             </xs:sequence>
+            <xs:attribute type="xs:byte" name="id" use="optional"/>
           </xs:complexType>
         </xs:element>
         <xs:element name="canephoracoffe">

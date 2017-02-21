@@ -5,9 +5,7 @@ package entity;
  */
 public class LibericaCoffe extends AbstractCoffe {
 
-    public LibericaCoffe(){
-
-    }
+    public LibericaCoffe(){}
     public LibericaCoffe(String coffeeType, String coffeeSort) {
         super(coffeeType, coffeeSort);
     }

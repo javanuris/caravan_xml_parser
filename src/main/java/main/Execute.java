@@ -4,7 +4,7 @@ import entity.AbstractCoffe;
 import org.xml.sax.SAXException;
 import parse.DomCoffeParser;
 import parse.SaxCoffeParser;
-import service.CoffeValidator;
+import service.Utils;
 
 import javax.xml.parsers.*;
 import java.io.File;
@@ -14,26 +14,24 @@ import java.util.ArrayList;
 /**
  * Created by User on 20.02.2017.
  */
-public class Executer {
+public class Execute {
 
-    public void parseDom(){
+    public ArrayList<AbstractCoffe> parseDom() {
+        ArrayList<AbstractCoffe> list = null;
         DomCoffeParser domCoffeParser = new DomCoffeParser();
-        domCoffeParser.buildSetCoffe(CoffeValidator.FILE_NAME);
-        ArrayList<AbstractCoffe> list = domCoffeParser.getAbstractCoffes();
-        for(AbstractCoffe abstractCoffe : list)
-        System.out.println(abstractCoffe);
+        domCoffeParser.buildSetCoffe(Utils.FILE_NAME);
+        list = domCoffeParser.getAbstractCoffes();
+        return list;
     }
 
-    public void parserSax() {
+    public ArrayList<AbstractCoffe> parserSax() {
+        ArrayList<AbstractCoffe> list = null;
         SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
         try {
             SAXParser parser = saxParserFactory.newSAXParser();
             SaxCoffeParser saxParser = new SaxCoffeParser();
-            parser.parse(new File(CoffeValidator.FILE_NAME), saxParser);
-            ArrayList<AbstractCoffe> list = saxParser.getAbstractCoffes();
-            for (AbstractCoffe arabicaCoffee : list) {
-                System.out.println(arabicaCoffee);
-            }
+            parser.parse(new File(Utils.FILE_NAME), saxParser);
+            list = saxParser.getAbstractCoffes();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -41,6 +39,7 @@ public class Executer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return list;
     }
 
 

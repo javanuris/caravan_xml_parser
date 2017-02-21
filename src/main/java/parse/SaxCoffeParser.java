@@ -46,6 +46,7 @@ public class SaxCoffeParser extends DefaultHandler {
             coffeeWieght = true;
         }
     }
+
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         if (coofeType) {
@@ -65,6 +66,7 @@ public class SaxCoffeParser extends DefaultHandler {
             coffeeWieght = false;
         }
     }
+
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())

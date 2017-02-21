@@ -1,12 +1,12 @@
 package parse;
 
-import entity.AbstractCoffe;
-import entity.ArabicaCoffee;
+import entity.*;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
+import service.Utils;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,9 +18,12 @@ import java.util.ArrayList;
  * Created by User on 21.02.2017.
  */
 public class DomCoffeParser {
-private DocumentBuilder documentBuilder;
+    private DocumentBuilder documentBuilder;
     ArrayList<AbstractCoffe> abstractCoffes;
-    public DomCoffeParser(){
+
+
+    public DomCoffeParser() {
+        System.out.println(AbstractCoffe.class.getSuperclass().getSimpleName());
         this.abstractCoffes = new ArrayList<AbstractCoffe>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         try {
@@ -30,18 +33,19 @@ private DocumentBuilder documentBuilder;
         }
     }
 
-    public void buildSetCoffe(String fileName){
-
+    public void buildSetCoffe(String fileName) {
         Document doc = null;
         try {
             doc = documentBuilder.parse(fileName);
+            doc.getDocumentElement().normalize();
             Element root = doc.getDocumentElement();
-            NodeList coffeeList = root.getElementsByTagName("arabicacoffee");
-            System.out.println(coffeeList.getLength()+ "<---");
-            for(int i = 0; i < coffeeList.getLength(); i++){
-                Element coffeElement = (Element)coffeeList.item(i);
-                AbstractCoffe abstractCoffe = buildStudent(coffeElement ,new ArabicaCoffee());
-                abstractCoffes.add(abstractCoffe);
+            for (int i = 0; i < Utils.KIND_OF_COFFEE.length; i++) {
+                NodeList coffeeList = root.getElementsByTagName(Utils.KIND_OF_COFFEE[i]);
+                for (int z = 0; z < coffeeList.getLength(); z++) {
+                    Element coffeElement = (Element) coffeeList.item(z);
+                    AbstractCoffe abstractCoffe = buildStudent(coffeElement);
+                    abstractCoffes.add(abstractCoffe);
+                }
             }
         } catch (SAXException e) {
             e.printStackTrace();
@@ -50,20 +54,34 @@ private DocumentBuilder documentBuilder;
         }
 
     }
-    private AbstractCoffe buildStudent(Element cofffeElement , AbstractCoffe abstractCoffe){
-        AbstractCoffe coffeObject = abstractCoffe;
-        coffeObject.setCoffeeType(getElementTextContent(cofffeElement , "coffetype"));
-        coffeObject.setCoffeeSort(getElementTextContent(cofffeElement , "coffesort"));
+
+    private AbstractCoffe buildStudent(Element cofffeElement) {
+        AbstractCoffe coffeObject = null;
+        if (ArabicaCoffee.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+            coffeObject = new ArabicaCoffee();
+        }
+        if (DewevreiCoffe.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+            coffeObject = new DewevreiCoffe();
+        }
+        if (LibericaCoffe.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+            coffeObject = new LibericaCoffe();
+        }
+        if (CanephoraCoffe.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+            coffeObject = new CanephoraCoffe();
+        }
+        coffeObject.setCoffeeType(getElementTextContent(cofffeElement, "coffetype"));
+        coffeObject.setCoffeeSort(getElementTextContent(cofffeElement, "coffesort"));
+        coffeObject.setPrice(Integer.parseInt(getElementTextContent(cofffeElement, "coffeprice")));
+        coffeObject.setWeight(Integer.parseInt(getElementTextContent(cofffeElement, "coffeeweight")));
         return coffeObject;
     }
 
-    private static String getElementTextContent(Element element, String elemntName){
+    private static String getElementTextContent(Element element, String elemntName) {
         NodeList nodeList = element.getElementsByTagName(elemntName);
         Node node = nodeList.item(0);
         String text = node.getTextContent();
         return text;
     }
-
 
     public ArrayList<AbstractCoffe> getAbstractCoffes() {
         return abstractCoffes;

@@ -10,57 +10,57 @@
 
     <arabicacoffee>
         <id>2</id>
-        <coffetype>insrant</coffetype>
-        <coffesort>1</coffesort>
-        <coffeprice>1550</coffeprice>
+        <coffetype>instant</coffetype>
+        <coffesort>2</coffesort>
+        <coffeprice>550</coffeprice>
         <coffeeweight>656</coffeeweight>
     </arabicacoffee>
 
     <arabicacoffee>
         <id>3</id>
         <coffetype>pack</coffetype>
-        <coffesort>1</coffesort>
-        <coffeprice>56400</coffeprice>
+        <coffesort>3</coffesort>
+        <coffeprice>560</coffeprice>
         <coffeeweight>226</coffeeweight>
     </arabicacoffee>
 
 
     <canephoracoffe>
         <id>1</id>
-        <coffetype>bin-conephore</coffetype>
-        <coffesort>1</coffesort>
+        <coffetype>bin</coffetype>
+        <coffesort>4</coffesort>
         <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </canephoracoffe>
 
     <dewevreicoffe>
         <id>1</id>
-        <coffetype>bin</coffetype>
-        <coffesort>1</coffesort>
+        <coffetype>instant</coffetype>
+        <coffesort>4</coffesort>
         <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </dewevreicoffe>
 
     <dewevreicoffe>
         <id>2</id>
-        <coffetype>bin</coffetype>
+        <coffetype>pack</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>1556500</coffeprice>
+        <coffeprice>6500</coffeprice>
         <coffeeweight>656</coffeeweight>
     </dewevreicoffe>
 
     <dewevreicoffe>
         <id>1</id>
-        <coffetype>bindew</coffetype>
-        <coffesort>1</coffesort>
+        <coffetype>instant</coffetype>
+        <coffesort>2</coffesort>
         <coffeprice>105</coffeprice>
-        <coffeeweight>656</coffeeweight>
+        <coffeeweight>56</coffeeweight>
     </dewevreicoffe>
 
     <libericacoffe>
         <id>1</id>
-        <coffetype>binlib</coffetype>
-        <coffesort>1</coffesort>
+        <coffetype>bin</coffetype>
+        <coffesort>3</coffesort>
         <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </libericacoffe>

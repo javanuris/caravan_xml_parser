@@ -15,20 +15,17 @@ import java.io.IOException;
  * Created by User on 20.02.2017.
  */
 public class CoffeValidator {
-    public static  final String FILE_NAME= "src/main/resources/coffe.xml";
-    private String schemaname = "src/main/resources/temple.xsd";
+
     private Schema schema = null;
     private String language = XMLConstants.W3C_XML_SCHEMA_NS_URI;
     private SchemaFactory factory = SchemaFactory.newInstance(language);
-
-
     public void validateXMLviaXDS() {
         try {
-            schema = factory.newSchema(new File(schemaname));
+            schema = factory.newSchema(new File(Utils.SCHEMA_NAME));
             SAXParserFactory spf = SAXParserFactory.newInstance();
             spf.setSchema(schema);
             SAXParser parser = spf.newSAXParser();
-            parser.parse(FILE_NAME, new CoffeErrorHandler());
+            parser.parse(Utils.FILE_NAME, new CoffeErrorHandler());
         } catch (SAXException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {

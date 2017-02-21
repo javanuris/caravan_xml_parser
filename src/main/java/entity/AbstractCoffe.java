@@ -84,6 +84,6 @@ AbstractCoffe(){
 
     @Override
     public String toString() {
-        return id + "**" + price+ "**" + coffeeType+"  " +getClass().getSimpleName();
+        return coffeeType +" | "+coffeeSort +" | "+ price+" | "+weight +" | " +getClass().getSimpleName();
     }
 }

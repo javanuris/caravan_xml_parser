@@ -2,12 +2,9 @@ package parse;
 
 import entity.AbstractCoffe;
 import org.xml.sax.SAXException;
-import org.xml.sax.SAXParseException;
 import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
-import service.CoffeErrorHandler;
 import service.CoffeValidator;
-
 import javax.xml.parsers.*;
 import java.io.File;
 import java.io.IOException;
@@ -29,9 +26,11 @@ public class Executer {
         SAXParserImpl saxParser = new SAXParserImpl();
             parser.parse(new File(CoffeValidator.FILE_NAME) ,saxParser);
             ArrayList<AbstractCoffe> list = saxParser.getAbstractCoffes();
-            for(AbstractCoffe abstractCoffe : list){
-                System.out.println(abstractCoffe.toString());
+            System.out.println(list.size());
+            for (AbstractCoffe arabicaCoffee : list){
+                System.out.println(arabicaCoffee);
             }
+
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         } catch (SAXException e) {
@@ -39,9 +38,6 @@ public class Executer {
         }catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
     public void saxParser(){
         try {

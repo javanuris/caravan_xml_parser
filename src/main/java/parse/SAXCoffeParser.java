@@ -16,19 +16,12 @@ public class SAXCoffeParser extends DefaultHandler {
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         String s = localName;
-
-        for(int i = 0; i < attributes.getLength() ; i++) {
-            s += " " + attributes.getLocalName(i) + " = " + attributes.getValue(i);
-        }
-        System.out.print(s.trim());
-
-
-
+        System.out.println(localName);
     }
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        System.out.print(new String(ch , start , length));
+        System.out.print(new String(ch , start , length) );
     }
 
     @Override

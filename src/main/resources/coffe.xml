@@ -1,52 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <coffelist>
-    <arabicacoffee id="1">
+    <arabicacoffee>
         <id>1</id>
         <coffetype>bin</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>1994440</coffeprice>
+        <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </arabicacoffee>
 
-    <arabicacoffee id="2">
+    <arabicacoffee>
         <id>2</id>
-        <coffetype>bin</coffetype>
+        <coffetype>insrant</coffetype>
         <coffesort>1</coffesort>
         <coffeprice>1550</coffeprice>
         <coffeeweight>656</coffeeweight>
     </arabicacoffee>
 
-
-    <arabicacoffee id="4">
-        <id>2</id>
-        <coffetype>bin</coffetype>
-        <coffesort>1</coffesort>
-        <coffeprice>1550</coffeprice>
-        <coffeeweight>656</coffeeweight>
-    </arabicacoffee>
-
-
-    <arabicacoffee id="6">
-        <id>2</id>
-        <coffetype>bin</coffetype>
-        <coffesort>1</coffesort>
-        <coffeprice>1550</coffeprice>
-        <coffeeweight>656</coffeeweight>
-    </arabicacoffee>
-
-    <arabicacoffee id="3">
+    <arabicacoffee>
         <id>3</id>
-        <coffetype>bin</coffetype>
+        <coffetype>pack</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>5400</coffeprice>
+        <coffeprice>56400</coffeprice>
         <coffeeweight>226</coffeeweight>
     </arabicacoffee>
 
+
     <canephoracoffe>
         <id>1</id>
-        <coffetype>bin</coffetype>
+        <coffetype>bin-conephore</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>15</coffeprice>
+        <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </canephoracoffe>
 
@@ -54,7 +37,7 @@
         <id>1</id>
         <coffetype>bin</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>105</coffeprice>
+        <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </dewevreicoffe>
 
@@ -69,17 +52,17 @@
 
     <dewevreicoffe>
         <id>1</id>
-        <coffetype>bin</coffetype>
+        <coffetype>bindew</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>1</coffeprice>
+        <coffeprice>105</coffeprice>
         <coffeeweight>656</coffeeweight>
     </dewevreicoffe>
 
     <libericacoffe>
         <id>1</id>
-        <coffetype>bin</coffetype>
+        <coffetype>binlib</coffetype>
         <coffesort>1</coffesort>
-        <coffeprice>5</coffeprice>
+        <coffeprice>100</coffeprice>
         <coffeeweight>656</coffeeweight>
     </libericacoffe>
 

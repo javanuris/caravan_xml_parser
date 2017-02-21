@@ -10,70 +10,84 @@ import java.util.ArrayList;
 /**
  * Created by User on 20.02.2017.
  */
-public class SAXParserImpl extends DefaultHandler{
+public class SAXParserImpl extends DefaultHandler {
     private ArrayList<AbstractCoffe> abstractCoffes = new ArrayList<AbstractCoffe>();
     private AbstractCoffe abstractCoffe = null;
 
-
-    boolean coffeType = false;
-    boolean coffeeSort = false;
-    boolean coffePrice =false;
-    boolean coffeeWeight =false;
+    boolean coofeType = false;
+    boolean coffeSort = false;
+    boolean coffeePrice =false;
+    boolean coffeeWieght = false;
 
     @Override
+    public void startDocument() throws SAXException {
+        System.out.println("Начало докумена");
+    }
+    @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
-
-            collectValue(qName , ArabicaCoffee.class, attributes);
-
-    }
-
-    public void collectValue( String qName ,Class clazz, Attributes attributes){
-        if(qName.equalsIgnoreCase(clazz.getSimpleName())) {
-            String str = attributes.getValue("id");
+        if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())) {
             abstractCoffe = new ArabicaCoffee();
-            abstractCoffe.setId(Integer.parseInt(str));
         }
-        else if(qName.equalsIgnoreCase("coffetype")){
-            coffeType = true;
+        if (qName.equalsIgnoreCase(DewevreiCoffe.class.getSimpleName())) {
+            abstractCoffe = new DewevreiCoffe();
         }
-        else if(qName.equalsIgnoreCase("coffesort")){
-            coffeeSort = true;
+        if (qName.equalsIgnoreCase(CanephoraCoffe.class.getSimpleName())) {
+            abstractCoffe = new CanephoraCoffe();
         }
-        else if(qName.equalsIgnoreCase("coffeprice")){
-            coffePrice = true;
+        if (qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())) {
+            abstractCoffe = new LibericaCoffe();
         }
-        else if(qName.equalsIgnoreCase("coffeeweight")){
-            coffeeWeight = true;
+        if(qName.equalsIgnoreCase("coffetype")){
+            coofeType = true;
+        }
+        if(qName.equalsIgnoreCase("coffesort")){
+            coffeSort = true;
+        }
+        if(qName.equalsIgnoreCase("coffeprice")){
+            coffeePrice = true;
+        }
+        if(qName.equalsIgnoreCase("coffeeweight")){
+            coffeeWieght = true;
         }
     }
-
 
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        if(coffeType){
-         abstractCoffe.setCoffeeType(new String(ch, start , length));
-            coffeType = false;
-        }else if(coffeeSort){
-            abstractCoffe.setCoffeeSort(new String(ch, start , length));
-            coffeeSort = false;
-        }else if(coffePrice){
-            abstractCoffe.setPrice(Integer.parseInt(new String(ch, start , length)));
-            coffePrice = false;
-        }else if(coffeeWeight){
-           // abstractCoffe.setWeight(Integer.parseInt(new String(ch, start , length)));
+        if(coofeType){
+            abstractCoffe.setCoffeeType(new String(ch , start , length));
+            coofeType =false;
         }
-
-    }  @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
-        if(qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())){
-            abstractCoffes.add(abstractCoffe);
-          //  System.out.println(abstractCoffes.size());
-           // System.out.println(abstractCoffes.get(0).getPrice());
+        if(coffeSort){
+            abstractCoffe.setCoffeeSort(new String(ch , start , length));
+            coffeSort =false;
         }
-
+        if(coffeePrice){
+            abstractCoffe.setPrice(Integer.parseInt(new String(ch , start , length)));
+            coffeePrice =false;
+        }
+        if(coffeeWieght){
+            abstractCoffe.setWeight(Integer.parseInt(new String(ch , start , length)));
+            coffeeWieght =false;
+        }
     }
+
+    @Override
+    public void endElement(String uri, String localName, String qName) throws SAXException {
+        if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())
+                || qName.equalsIgnoreCase(DewevreiCoffe.class.getSimpleName())
+                || qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())
+                || qName.equalsIgnoreCase(CanephoraCoffe.class.getSimpleName())) {
+            abstractCoffes.add(abstractCoffe);
+        }
+    }
+
 
     public ArrayList<AbstractCoffe> getAbstractCoffes() {
         return abstractCoffes;
+    }
+
+    @Override
+    public void endDocument() throws SAXException {
+        System.out.println("Конец документа");
     }
 }

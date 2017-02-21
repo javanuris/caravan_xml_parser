@@ -11,7 +11,6 @@
               <xs:element type="xs:int" name="coffeprice"/>
               <xs:element type="xs:short" name="coffeeweight"/>
             </xs:sequence>
-            <xs:attribute type="xs:byte" name="id" use="optional"/>
           </xs:complexType>
         </xs:element>
         <xs:element name="canephoracoffe">

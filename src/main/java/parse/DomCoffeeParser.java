@@ -17,7 +17,8 @@ import java.util.ArrayList;
 /**
  * Created by User on 21.02.2017.
  */
-public class DomCoffeeParser {
+public class DomCoffeeParser implements AbstractCoffeeParser{
+
     private DocumentBuilder documentBuilder;
     ArrayList<AbstractCoffe> abstractCoffes;
 
@@ -33,7 +34,7 @@ public class DomCoffeeParser {
         }
     }
 
-    public void buildSetCoffe(String fileName) {
+    public void buildSetCoffee(String fileName) {
         Document doc = null;
         try {
             doc = documentBuilder.parse(fileName);
@@ -82,7 +83,9 @@ public class DomCoffeeParser {
         return text;
     }
 
-    public ArrayList<AbstractCoffe> getAbstractCoffes() {
+    public ArrayList<AbstractCoffe> getListOfCoffee() {
         return abstractCoffes;
     }
+
+
 }

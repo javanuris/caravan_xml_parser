@@ -1,56 +1,20 @@
 package main;
-
 import entity.AbstractCoffe;
-import org.xml.sax.SAXException;
-import parse.DomCoffeeParser;
-import parse.SaxCoffeeParser;
-
-import parse.StaxCoffeParser;
+import parse.*;
 import service.Utils;
-
-import javax.xml.parsers.*;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by User on 20.02.2017.
  */
 public class Execute {
+    private CoffeeBuilderFactory coffeeBuilder = new CoffeeBuilderFactory();
 
-    public ArrayList<AbstractCoffe> parseDom() {
+    public ArrayList<AbstractCoffe> parseXML(String parsingType) {
         ArrayList<AbstractCoffe> list = null;
-        DomCoffeeParser domCoffeParser = new DomCoffeeParser();
-        domCoffeParser.buildSetCoffe(Utils.FILE_NAME);
-        list = domCoffeParser.getAbstractCoffes();
+        AbstractCoffeeParser bulder = coffeeBuilder.createCoffeeBuilder(parsingType);
+        bulder.buildSetCoffee(Utils.FILE_NAME);
+        list = bulder.getListOfCoffee();
         return list;
     }
-
-    public ArrayList<AbstractCoffe> parserStAX() {
-        ArrayList<AbstractCoffe> list = null;
-        StaxCoffeParser staxCoffeParser = new StaxCoffeParser();
-        staxCoffeParser.elementsCoffee(Utils.FILE_NAME);
-        list = staxCoffeParser.getAbstractCoffes();
-        return list;
-    }
-
-    public ArrayList<AbstractCoffe> parserSax() {
-        ArrayList<AbstractCoffe> list = null;
-        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
-        try {
-            SAXParser parser = saxParserFactory.newSAXParser();
-            SaxCoffeeParser saxParser = new SaxCoffeeParser();
-            parser.parse(new File(Utils.FILE_NAME), saxParser);
-            list = saxParser.getAbstractCoffes();
-        } catch (ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (SAXException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-
 }

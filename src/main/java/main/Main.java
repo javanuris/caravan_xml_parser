@@ -13,9 +13,9 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-       ArrayList<AbstractCoffe> listDom = new Execute().parseDom();
-        ArrayList<AbstractCoffe> listSax =  new Execute().parserSax();
-        ArrayList<AbstractCoffe> listStaX = new Execute().parserStAX();
+       ArrayList<AbstractCoffe> listDom = new Execute().parseXML("dom");
+        ArrayList<AbstractCoffe> listSax =  new Execute().parseXML("sax");
+        ArrayList<AbstractCoffe> listStaX = new Execute().parseXML("stax");
         new CoffeValidator().validateXMLviaXDS();
         new Shower().showPopulateObjects(listDom , "DOM");
         new Shower().showPopulateObjects(listSax , "SAX");

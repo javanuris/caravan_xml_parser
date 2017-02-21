@@ -18,7 +18,7 @@ import java.util.ArrayList;
 /**
  * Created by User on 21.02.2017.
  */
-public class StaxCoffeParser {
+public class StaxCoffeParser implements AbstractCoffeeParser{
     private ArrayList<AbstractCoffe> abstractCoffes = new ArrayList<AbstractCoffe>();
     private AbstractCoffe abstractCoffe = null;
 
@@ -27,7 +27,7 @@ public class StaxCoffeParser {
     private boolean coffeePrice = false;
     private boolean coffeeWieght = false;
 
-    public void elementsCoffee(String fileName) {
+    public void buildSetCoffee (String fileName) {
         XMLInputFactory factory = XMLInputFactory.newInstance();
         try {
             XMLEventReader eventReader = factory.createXMLEventReader(new FileReader(fileName));
@@ -51,6 +51,7 @@ public class StaxCoffeParser {
             e.printStackTrace();
         }
     }
+
 
     public void startElement(XMLEvent event) {
         StartElement startElement = event.asStartElement();
@@ -113,7 +114,8 @@ public class StaxCoffeParser {
         }
     }
 
-    public ArrayList<AbstractCoffe> getAbstractCoffes() {
+    public ArrayList<AbstractCoffe> getListOfCoffee() {
         return abstractCoffes;
     }
+
 }

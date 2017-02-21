@@ -6,12 +6,16 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 import service.Utils;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
+import java.io.IOException;
 import java.util.ArrayList;
 
 /**
  * Created by User on 20.02.2017.
  */
-public class SaxCoffeeParser extends DefaultHandler {
+public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeeParser {
     private ArrayList<AbstractCoffe> abstractCoffes = new ArrayList<AbstractCoffe>();
     private AbstractCoffe abstractCoffe = null;
 
@@ -19,6 +23,25 @@ public class SaxCoffeeParser extends DefaultHandler {
     private boolean coffeSort = false;
     private boolean coffeePrice = false;
     private boolean coffeeWieght = false;
+
+    @Override
+    public void buildSetCoffee(String str) {
+        SAXParserFactory saxParserFactory = SAXParserFactory.newInstance();
+
+        try {
+            SAXParser parser = saxParserFactory.newSAXParser();
+            try {
+                parser.parse(str ,this);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes)  {
@@ -77,8 +100,9 @@ public class SaxCoffeeParser extends DefaultHandler {
             abstractCoffes.add(abstractCoffe);
         }
     }
-    public ArrayList<AbstractCoffe> getAbstractCoffes() {
+    public ArrayList<AbstractCoffe> getListOfCoffee() {
         return abstractCoffes;
     }
+
 
 }

@@ -1,6 +1,7 @@
 package parse;
 
 import entity.*;
+import service.Utils;
 
 import javax.xml.stream.XMLEventReader;
 import javax.xml.stream.XMLInputFactory;
@@ -49,8 +50,6 @@ public class StaxCoffeParser {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-
-
     }
 
     public void startElement(XMLEvent event) {
@@ -68,16 +67,16 @@ public class StaxCoffeParser {
         if (qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())) {
             abstractCoffe = new LibericaCoffe();
         }
-        if (qName.equalsIgnoreCase("coffetype")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_TYPE)) {
             coofeType = true;
         }
-        if (qName.equalsIgnoreCase("coffesort")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_SORT)) {
             coffeSort = true;
         }
-        if (qName.equalsIgnoreCase("coffeprice")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_PRICE)) {
             coffeePrice = true;
         }
-        if (qName.equalsIgnoreCase("coffeeweight")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_WEIGHT)) {
             coffeeWieght = true;
         }
     }

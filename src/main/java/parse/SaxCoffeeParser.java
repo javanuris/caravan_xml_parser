@@ -4,6 +4,7 @@ import entity.*;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
+import service.Utils;
 
 import java.util.ArrayList;
 
@@ -20,7 +21,7 @@ public class SaxCoffeeParser extends DefaultHandler {
     private boolean coffeeWieght = false;
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
+    public void startElement(String uri, String localName, String qName, Attributes attributes)  {
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())) {
             abstractCoffe = new ArabicaCoffee();
         }
@@ -33,22 +34,22 @@ public class SaxCoffeeParser extends DefaultHandler {
         if (qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())) {
             abstractCoffe = new LibericaCoffe();
         }
-        if (qName.equalsIgnoreCase("coffetype")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_TYPE)) {
             coofeType = true;
         }
-        if (qName.equalsIgnoreCase("coffesort")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_SORT)) {
             coffeSort = true;
         }
-        if (qName.equalsIgnoreCase("coffeprice")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_PRICE)) {
             coffeePrice = true;
         }
-        if (qName.equalsIgnoreCase("coffeeweight")) {
+        if (qName.equalsIgnoreCase(Utils.COFFEE_WEIGHT)) {
             coffeeWieght = true;
         }
     }
 
     @Override
-    public void characters(char[] ch, int start, int length) throws SAXException {
+    public void characters(char[] ch, int start, int length)  {
         if (coofeType) {
             abstractCoffe.setCoffeeType(new String(ch, start, length));
             coofeType = false;
@@ -68,7 +69,7 @@ public class SaxCoffeeParser extends DefaultHandler {
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName) throws SAXException {
+    public void endElement(String uri, String localName, String qName){
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())
                 || qName.equalsIgnoreCase(DewevreiCoffe.class.getSimpleName())
                 || qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())

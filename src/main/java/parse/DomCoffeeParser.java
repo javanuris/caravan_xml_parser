@@ -17,12 +17,12 @@ import java.util.ArrayList;
 /**
  * Created by User on 21.02.2017.
  */
-public class DomCoffeParser {
+public class DomCoffeeParser {
     private DocumentBuilder documentBuilder;
     ArrayList<AbstractCoffe> abstractCoffes;
 
 
-    public DomCoffeParser() {
+    public DomCoffeeParser() {
         System.out.println(AbstractCoffe.class.getSuperclass().getSimpleName());
         this.abstractCoffes = new ArrayList<AbstractCoffe>();
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();

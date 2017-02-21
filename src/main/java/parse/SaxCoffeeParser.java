@@ -10,7 +10,7 @@ import java.util.ArrayList;
 /**
  * Created by User on 20.02.2017.
  */
-public class SaxCoffeParser extends DefaultHandler {
+public class SaxCoffeeParser extends DefaultHandler {
     private ArrayList<AbstractCoffe> abstractCoffes = new ArrayList<AbstractCoffe>();
     private AbstractCoffe abstractCoffe = null;
 

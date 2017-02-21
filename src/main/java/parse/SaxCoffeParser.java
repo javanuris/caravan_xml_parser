@@ -10,19 +10,15 @@ import java.util.ArrayList;
 /**
  * Created by User on 20.02.2017.
  */
-public class SAXParserImpl extends DefaultHandler {
+public class SaxCoffeParser extends DefaultHandler {
     private ArrayList<AbstractCoffe> abstractCoffes = new ArrayList<AbstractCoffe>();
     private AbstractCoffe abstractCoffe = null;
 
-    boolean coofeType = false;
-    boolean coffeSort = false;
-    boolean coffeePrice =false;
-    boolean coffeeWieght = false;
+    private boolean coofeType = false;
+    private boolean coffeSort = false;
+    private boolean coffeePrice = false;
+    private boolean coffeeWieght = false;
 
-    @Override
-    public void startDocument() throws SAXException {
-        System.out.println("Начало докумена");
-    }
     @Override
     public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())) {
@@ -37,40 +33,38 @@ public class SAXParserImpl extends DefaultHandler {
         if (qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())) {
             abstractCoffe = new LibericaCoffe();
         }
-        if(qName.equalsIgnoreCase("coffetype")){
+        if (qName.equalsIgnoreCase("coffetype")) {
             coofeType = true;
         }
-        if(qName.equalsIgnoreCase("coffesort")){
+        if (qName.equalsIgnoreCase("coffesort")) {
             coffeSort = true;
         }
-        if(qName.equalsIgnoreCase("coffeprice")){
+        if (qName.equalsIgnoreCase("coffeprice")) {
             coffeePrice = true;
         }
-        if(qName.equalsIgnoreCase("coffeeweight")){
+        if (qName.equalsIgnoreCase("coffeeweight")) {
             coffeeWieght = true;
         }
     }
-
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
-        if(coofeType){
-            abstractCoffe.setCoffeeType(new String(ch , start , length));
-            coofeType =false;
+        if (coofeType) {
+            abstractCoffe.setCoffeeType(new String(ch, start, length));
+            coofeType = false;
         }
-        if(coffeSort){
-            abstractCoffe.setCoffeeSort(new String(ch , start , length));
-            coffeSort =false;
+        if (coffeSort) {
+            abstractCoffe.setCoffeeSort(new String(ch, start, length));
+            coffeSort = false;
         }
-        if(coffeePrice){
-            abstractCoffe.setPrice(Integer.parseInt(new String(ch , start , length)));
-            coffeePrice =false;
+        if (coffeePrice) {
+            abstractCoffe.setPrice(Integer.parseInt(new String(ch, start, length)));
+            coffeePrice = false;
         }
-        if(coffeeWieght){
-            abstractCoffe.setWeight(Integer.parseInt(new String(ch , start , length)));
-            coffeeWieght =false;
+        if (coffeeWieght) {
+            abstractCoffe.setWeight(Integer.parseInt(new String(ch, start, length)));
+            coffeeWieght = false;
         }
     }
-
     @Override
     public void endElement(String uri, String localName, String qName) throws SAXException {
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())
@@ -80,14 +74,8 @@ public class SAXParserImpl extends DefaultHandler {
             abstractCoffes.add(abstractCoffe);
         }
     }
-
-
     public ArrayList<AbstractCoffe> getAbstractCoffes() {
         return abstractCoffes;
     }
 
-    @Override
-    public void endDocument() throws SAXException {
-        System.out.println("Конец документа");
-    }
 }

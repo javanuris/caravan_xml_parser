@@ -1,6 +1,5 @@
 package main;
 
-import parse.Executer;
 import service.CoffeValidator;
 
 /**
@@ -10,7 +9,8 @@ public class Main {
 
     public static void main(String[] args) {
         new CoffeValidator().validateXMLviaXDS();
-        new Executer().parserSaxSecond();
+        new Executer().parserSax();
+        new Executer().parseDom();
 
 
     }

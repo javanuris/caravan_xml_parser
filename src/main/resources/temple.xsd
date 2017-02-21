@@ -13,7 +13,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="canephoracoffe">
+        <xs:element name="canephoracoffe" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="id"/>
@@ -35,7 +35,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="libericacoffe">
+        <xs:element name="libericacoffe" maxOccurs="unbounded" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
               <xs:element type="xs:byte" name="id"/>

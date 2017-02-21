@@ -22,9 +22,6 @@ public class CoffeValidator {
     private SchemaFactory factory = SchemaFactory.newInstance(language);
 
 
-    public CoffeValidator() {
-    }
-
     public void validateXMLviaXDS() {
         try {
             schema = factory.newSchema(new File(schemaname));

@@ -13,12 +13,15 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        ArrayList<AbstractCoffe> listDom = new Execute().parseDom();
+       ArrayList<AbstractCoffe> listDom = new Execute().parseDom();
         ArrayList<AbstractCoffe> listSax =  new Execute().parserSax();
+        ArrayList<AbstractCoffe> listStaX = new Execute().parserStAX();
         new CoffeValidator().validateXMLviaXDS();
         new Shower().showPopulateObjects(listDom , "DOM");
         new Shower().showPopulateObjects(listSax , "SAX");
+        new Shower().showPopulateObjects(listStaX , "StAX");
         EqualityCompresion equalityCompresion = new EqualityCompresion();
-        System.out.println(equalityCompresion.equality(listDom , listSax) + " <-- Сравние двух списков с обьектами ");
+        System.out.println(equalityCompresion.equality(listStaX , listSax) + " <-- Сравние двух списков с обьектами ");
+
     }
 }

@@ -4,6 +4,8 @@ import entity.AbstractCoffe;
 import org.xml.sax.SAXException;
 import parse.DomCoffeeParser;
 import parse.SaxCoffeeParser;
+
+import parse.StaxCoffeParser;
 import service.Utils;
 
 import javax.xml.parsers.*;
@@ -21,6 +23,14 @@ public class Execute {
         DomCoffeeParser domCoffeParser = new DomCoffeeParser();
         domCoffeParser.buildSetCoffe(Utils.FILE_NAME);
         list = domCoffeParser.getAbstractCoffes();
+        return list;
+    }
+
+    public ArrayList<AbstractCoffe> parserStAX() {
+        ArrayList<AbstractCoffe> list = null;
+        StaxCoffeParser staxCoffeParser = new StaxCoffeParser();
+        staxCoffeParser.elementsCoffee(Utils.FILE_NAME);
+        list = staxCoffeParser.getAbstractCoffes();
         return list;
     }
 

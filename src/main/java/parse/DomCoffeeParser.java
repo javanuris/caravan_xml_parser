@@ -52,7 +52,6 @@ public class DomCoffeeParser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     private AbstractCoffe buildStudent(Element cofffeElement) {

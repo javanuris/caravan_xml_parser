@@ -8,7 +8,12 @@ public abstract class AbstractCoffe {
     private String coffeeSort;
     private int price;
     private int weight;
-    private int id;
+
+    private static final String COFFE_TYPE_TEXT = "ТИП: ";
+    private static final String COFFE_SORT_TEXT = " | СОРТ: ";
+    private static final String COFFE_PRICE_TEXT = " | ЦЕНА: ";
+    private static final String COFFE_WEIGHT_TEXT = " | ВEC: ";
+    private static final String COFFE_KIND_TEXT = " | ВИД: ";
 
     public AbstractCoffe(String coffeeType, String coffeeSort) {
         this.coffeeType = coffeeType;
@@ -75,6 +80,10 @@ AbstractCoffe(){
 
     @Override
     public String toString() {
-        return"ТИП: "+coffeeType +" | СОРТ: "+coffeeSort +" | ЦЕНА: "+ price+" | ВЕС: "+weight +" | ВИД: " +getClass().getSimpleName();
+        return COFFE_TYPE_TEXT+coffeeType
+                +COFFE_SORT_TEXT+coffeeSort
+                +COFFE_PRICE_TEXT+ price
+                +COFFE_WEIGHT_TEXT+weight
+                +COFFE_KIND_TEXT+getClass().getSimpleName();
     }
 }

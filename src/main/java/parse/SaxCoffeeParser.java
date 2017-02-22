@@ -30,7 +30,7 @@ public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeePar
         try {
             SAXParser parser = saxParserFactory.newSAXParser();
             try {
-                parser.parse(str ,this);
+                parser.parse(str, this);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -43,7 +43,7 @@ public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeePar
     }
 
     @Override
-    public void startElement(String uri, String localName, String qName, Attributes attributes)  {
+    public void startElement(String uri, String localName, String qName, Attributes attributes) {
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())) {
             abstractCoffe = new ArabicaCoffee();
         }
@@ -71,7 +71,7 @@ public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeePar
     }
 
     @Override
-    public void characters(char[] ch, int start, int length)  {
+    public void characters(char[] ch, int start, int length) {
         if (coofeType) {
             abstractCoffe.setCoffeeType(new String(ch, start, length));
             coofeType = false;
@@ -91,7 +91,7 @@ public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeePar
     }
 
     @Override
-    public void endElement(String uri, String localName, String qName){
+    public void endElement(String uri, String localName, String qName) {
         if (qName.equalsIgnoreCase(ArabicaCoffee.class.getSimpleName())
                 || qName.equalsIgnoreCase(DewevreiCoffe.class.getSimpleName())
                 || qName.equalsIgnoreCase(LibericaCoffe.class.getSimpleName())
@@ -99,6 +99,7 @@ public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeePar
             abstractCoffes.add(abstractCoffe);
         }
     }
+
     public ArrayList<AbstractCoffe> getListOfCoffee() {
         return abstractCoffes;
     }

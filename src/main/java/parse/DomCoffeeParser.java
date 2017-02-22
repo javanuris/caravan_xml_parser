@@ -17,10 +17,10 @@ import java.util.ArrayList;
 /**
  * Created by User on 21.02.2017.
  */
-public class DomCoffeeParser implements AbstractCoffeeParser{
+public class DomCoffeeParser implements AbstractCoffeeParser {
 
     private DocumentBuilder documentBuilder;
-    ArrayList<AbstractCoffe> abstractCoffes;
+    private ArrayList<AbstractCoffe> abstractCoffes;
 
 
     public DomCoffeeParser() {

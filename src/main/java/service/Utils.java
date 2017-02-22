@@ -11,4 +11,7 @@ public interface Utils {
     String COFFEE_SORT = "coffesort";
     String COFFEE_PRICE = "coffeprice";
     String COFFEE_WEIGHT = "coffeeweight";
+    String SAX = "sax";
+    String DOM = "dom";
+    String STAX = "stax";
 }

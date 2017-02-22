@@ -8,7 +8,7 @@ import java.util.Collections;
 /**
  * Created by User on 21.02.2017.
  */
-public class EqualityCompresion {
+public class EqualityComparte {
 
     public boolean equality(ArrayList<AbstractCoffe> obj1, ArrayList<AbstractCoffe> obj2) {
         if (obj1 == null && obj2 == null) {

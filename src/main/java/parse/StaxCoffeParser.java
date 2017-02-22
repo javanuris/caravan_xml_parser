@@ -52,7 +52,6 @@ public class StaxCoffeParser implements AbstractCoffeeParser{
         }
     }
 
-
     public void startElement(XMLEvent event) {
         StartElement startElement = event.asStartElement();
         String qName = startElement.getName().getLocalPart();
@@ -100,7 +99,6 @@ public class StaxCoffeParser implements AbstractCoffeeParser{
             abstractCoffe.setWeight(Integer.parseInt(characters.getData()));
             coffeeWieght = false;
         }
-
     }
 
     public void endElement(XMLEvent event) {
@@ -110,7 +108,6 @@ public class StaxCoffeParser implements AbstractCoffeeParser{
                 || endElement.getName().getLocalPart().equalsIgnoreCase(LibericaCoffe.class.getSimpleName())
                 || endElement.getName().getLocalPart().equalsIgnoreCase(CanephoraCoffe.class.getSimpleName())) {
             abstractCoffes.add(abstractCoffe);
-
         }
     }
 

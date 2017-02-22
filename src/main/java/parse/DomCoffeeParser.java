@@ -55,24 +55,24 @@ public class DomCoffeeParser implements AbstractCoffeeParser{
         }
     }
 
-    private AbstractCoffe buildStudent(Element cofffeElement) {
+    private AbstractCoffe buildStudent(Element coffeeElement) {
         AbstractCoffe coffeObject = null;
-        if (ArabicaCoffee.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+        if (ArabicaCoffee.class.getSimpleName().equalsIgnoreCase(coffeeElement.getTagName())) {
             coffeObject = new ArabicaCoffee();
         }
-        if (DewevreiCoffe.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+        if (DewevreiCoffe.class.getSimpleName().equalsIgnoreCase(coffeeElement.getTagName())) {
             coffeObject = new DewevreiCoffe();
         }
-        if (LibericaCoffe.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+        if (LibericaCoffe.class.getSimpleName().equalsIgnoreCase(coffeeElement.getTagName())) {
             coffeObject = new LibericaCoffe();
         }
-        if (CanephoraCoffe.class.getSimpleName().equalsIgnoreCase(cofffeElement.getTagName())) {
+        if (CanephoraCoffe.class.getSimpleName().equalsIgnoreCase(coffeeElement.getTagName())) {
             coffeObject = new CanephoraCoffe();
         }
-        coffeObject.setCoffeeType(getElementTextContent(cofffeElement, "coffetype"));
-        coffeObject.setCoffeeSort(getElementTextContent(cofffeElement, "coffesort"));
-        coffeObject.setPrice(Integer.parseInt(getElementTextContent(cofffeElement, "coffeprice")));
-        coffeObject.setWeight(Integer.parseInt(getElementTextContent(cofffeElement, "coffeeweight")));
+        coffeObject.setCoffeeType(getElementTextContent(coffeeElement, Utils.COFFEE_TYPE));
+        coffeObject.setCoffeeSort(getElementTextContent(coffeeElement, Utils.COFFEE_SORT));
+        coffeObject.setPrice(Integer.parseInt(getElementTextContent(coffeeElement, Utils.COFFEE_PRICE)));
+        coffeObject.setWeight(Integer.parseInt(getElementTextContent(coffeeElement, Utils.COFFEE_WEIGHT)));
         return coffeObject;
     }
 

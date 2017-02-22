@@ -7,9 +7,8 @@ import java.util.ArrayList;
 /**
  * Created by User on 20.02.2017.
  */
-public class Execute {
+public class ParseHolder {
     private CoffeeBuilderFactory coffeeBuilder = new CoffeeBuilderFactory();
-
     public ArrayList<AbstractCoffe> parseXML(String parsingType) {
         ArrayList<AbstractCoffe> list = null;
         AbstractCoffeeParser bulder = coffeeBuilder.createCoffeeBuilder(parsingType);

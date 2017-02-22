@@ -18,7 +18,6 @@ import java.util.ArrayList;
 public class SaxCoffeeParser extends DefaultHandler implements AbstractCoffeeParser {
     private ArrayList<AbstractCoffe> abstractCoffes = new ArrayList<AbstractCoffe>();
     private AbstractCoffe abstractCoffe = null;
-
     private boolean coofeType = false;
     private boolean coffeSort = false;
     private boolean coffeePrice = false;

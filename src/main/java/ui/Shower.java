@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 public class Shower {
     public void showPopulateObjects(ArrayList<AbstractCoffe> abstractCoffes , String parsingName){
-        System.out.println("Parsing name: ->> " + parsingName);
+        System.out.println("Parsing name: ->> " + parsingName.toUpperCase());
         ArrayList<AbstractCoffe> list = abstractCoffes;
         for(AbstractCoffe abst : abstractCoffes){
             System.out.println("----------------------------");

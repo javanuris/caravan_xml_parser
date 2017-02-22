@@ -18,15 +18,6 @@ public abstract class AbstractCoffe {
 AbstractCoffe(){
 
 }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getCoffeeType() {
         return coffeeType;
     }
